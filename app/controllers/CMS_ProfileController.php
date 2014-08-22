@@ -8,4 +8,8 @@ class CMS_ProfileController extends \BaseController
 
         return View::make('CMS_profile.index')->with(['user'=> $user]);
 	}
+	
+	public function postChangeImage(){
+		return View::make('CMS_profile.upload_file');
+	}
 }

@@ -1,5 +1,8 @@
-body{
+html, body {
 	background:#eee;
+	margin: 0;
+	height:100%;
+	padding: 0;
 }
 
 #header{
@@ -21,8 +24,9 @@ body{
 }
 
 #sidebar{
-	float:left;
-	width:200px;
-	height:100%;
-	background:#ccc;
+	float: left;
+	position: fixed;
+	width: 200px;
+	background: #ccc;
+	min-height: 100%;
 }

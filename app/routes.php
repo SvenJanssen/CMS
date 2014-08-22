@@ -14,6 +14,7 @@
 Route::get('/', array('as' => 'users.login', 'uses' => 'CMS_UsersController@getLogin'));
 Route::get('/logout', array('as' => 'users.logout', 'uses' => 'CMS_UsersController@getLogout'));
 Route::post('/', array('as' => 'users.login.post', 'uses' => 'CMS_UsersController@postLogin'));
+Route::post('/', array('as' => 'profile.changeImage.post', 'uses' => 'CMS_ProfileController@postChangeImage'));
 
 /*Route::group(array('before' => 'auth|inGroup:admin'), function()
 {*/
