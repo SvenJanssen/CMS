@@ -49,25 +49,21 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h4 class="modal-title">Wijzig uw profielafbeelding</h4>
 			</div>
+			{{ Form::open(array('route' => 'profile.changeImage.post', 'role' => 'form', 'files'=>true)) }}
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-8">
 						<input type="file" name="file" id="file">
 					</div>
 					<div class="col-md-4">
-						<img class="img-thumbnail" src="images/DSC_0208.jpg" alt="image-1" width="250"/>
+						<img class="img-thumbnail" src="uploads/Sven.jpg" alt="image-1" width="250"/>
 						</br></br>
 					</div>
 				</div>
 			<div class="modal-footer">
 					<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-
-					{{ Form::open(array('route' => 'profile.changeImage.post', 'role' => 'form', 'files'=>true)) }}
-						<label for="file">Filename:</label>
-						<input type="file" name="file" id="file"><br>
-						<input type="submit" name="submit" value="Submit">
-					{{ Form::close() }}
-				
+					<input type="submit" name="submit" value="Submit" class="btn btn-primary">
+			{{ Form::close() }}
 			</div>
 		</div>
 	</div>
