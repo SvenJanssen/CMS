@@ -1,0 +1,28 @@
+body{
+	background:#eee;
+}
+
+#header{
+	background: #30a0ff;
+	color: white;
+	height: 50px;
+}
+
+#welcomeText{
+	float: right;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+
+#websiteDropDown{
+	float: right;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+
+#sidebar{
+	float:left;
+	width:200px;
+	height:100%;
+	background:#ccc;
+}

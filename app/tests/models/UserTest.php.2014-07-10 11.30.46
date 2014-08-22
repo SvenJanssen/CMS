@@ -1,0 +1,6 @@
+<?php
+	class UserTest extedns TestCase{
+		public function testThatTrueIsTrue(){
+			$this->assertTrue(true);
+	}
+}
