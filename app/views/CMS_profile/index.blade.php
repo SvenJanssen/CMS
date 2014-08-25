@@ -6,7 +6,6 @@
 {{ HTML::style('css/lightbox.css') }}
 
 @section('main')
-
 <div class="panel panel-default">
 	<div class="panel-heading">Profiel pagina</div>
 	<div class="row">
@@ -53,10 +52,10 @@
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-8">
-						<input type="file" name="file" id="file">
+						<input type="file" name="file" id="file" onchange="readURL(this);">
 					</div>
 					<div class="col-md-4">
-						<img class="img-thumbnail" src="uploads/Sven.jpg" alt="image-1" width="250"/>
+						<img class="img-thumbnail" src="uploads/{{$user->profile_image}}" alt="image-1" width="250" id="previewImage"/>
 						</br></br>
 					</div>
 				</div>
@@ -68,4 +67,19 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			
+			var reader = new FileReader();
+
+			reader.onload = function (e) {
+				$('#previewImage').attr('src', e.target.result);
+			}
+
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
 @stop

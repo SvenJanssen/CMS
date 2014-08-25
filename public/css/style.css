@@ -29,4 +29,16 @@ html, body {
 	width: 200px;
 	background: #ccc;
 	min-height: 100%;
+	border-right: 1px solid #30a0ff;
+}
+
+#sidepanel{
+	float: left;
+	position: fixed;
+	margin-top: -20px;
+	margin-left: 200px;
+	width: 300px;
+	background: #ddd;
+	min-height: 100%;
+	border-right: 10px solid #30a0ff;
 }

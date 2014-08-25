@@ -23,5 +23,7 @@ Route::post('/profile/upload', array('as' => 'profile.changeImage.post', 'uses' 
 	
 	Route::get('profile', 'CMS_ProfileController@showIndex');
 	
+	Route::get('page_management', 'CMS_PageManagementController@showPageManagement');
+	
 	
 //});
