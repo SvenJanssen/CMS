@@ -10,6 +10,9 @@ class CMS_ProfileController extends \BaseController
 	}
 	
 	public function postChangeImage(){
-		return View::make('CMS_profile.upload_file');
+		
+		$user = User::with('customer.websites')->where(['id' => Sentry::getUser()->id])->first();
+		
+		return View::make('CMS_profile.upload_file')->with(['user'=> $user]);
 	}
 }

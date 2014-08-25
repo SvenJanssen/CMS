@@ -9,7 +9,7 @@
 					<ul class="nav nav-pills" id="profielDropdown">
 						<li class="dropdown">
 							<button type="button" class="btn btn-warning dropdown-toggle btn-block" data-toggle="dropdown" style="height: 45px;">
-								<img src="images/DSC_0208.jpg" alt="..." class="img-circle" width="35" height="35"/>
+								<img src="uploads/{{ $user->profile_image}}" alt="..." class="img-circle" width="35" height="35"/>
 									{{ "Welkom, " . "<b>" . $user->first_name . " " . $user->last_name . "</b>"}} 
 								<span class="caret"></span>
 							</button>

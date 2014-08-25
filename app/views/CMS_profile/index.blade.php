@@ -12,8 +12,8 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="panel-body">
-				<a class="example-image-link" href="images/DSC_0208.jpg" data-lightbox="example-1">
-					<img class="img-thumbnail" src="images/DSC_0208.jpg" alt="image-1" width="250"/>
+				<a class="example-image-link" href="uploads/{{ $user->profile_image}}" data-lightbox="example-1">
+					<img class="img-thumbnail" src="uploads/{{ $user->profile_image}}" alt="image-1" width="250"/>
 					<span class="glyphicon glyphicon-fullscreen" style="color:white;position:absolute;margin-top:25px;margin-left:-25px;"></span>
 				</a>
 				
