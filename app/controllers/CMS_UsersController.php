@@ -139,5 +139,12 @@ class CMS_UsersController extends \BaseController
 	{
 		//
 	}
-
+	
+	public function password_forgotten(){
+		return View::make('CMS_users.password_forgotten');
+	}
+	
+	public function postChangePassword(){
+		//
+	}
 }

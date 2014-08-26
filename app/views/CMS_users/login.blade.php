@@ -8,26 +8,28 @@
 	</div>
 	<div class="row">
 		<div class="col-md-offset-3 col-md-6">
-			{{ Form::open(array('route' => 'users.login.post', 'role' => 'form')) }}
-				<div class="form-group {{ $errors->first('email') ? 'has-error' : '' }}">
-					{{ Form::label('email', 'E-mail' ); }}
-						{{ Form::text('email', Input::old('email'), array('placeholder'=>'E-mail','class' => 'form-control')) }}    
-						{{ $errors->first('email', '<p class="help-block">:message</p>') }}
+			<div class="panel panel-default">
+				<div class="panel-heading"><h2>Login</h2></div>
+				<div class="panel-body">
+				{{ Form::open(array('route' => 'users.login.post', 'role' => 'form')) }}
+					<div class="form-group {{ $errors->first('email') ? 'has-error' : '' }}">
+							{{ Form::text('email', Input::old('email'), array('placeholder'=>'E-mail','class' => 'form-control')) }}    
+							{{ $errors->first('email', '<p class="help-block">:message</p>') }}
+					</div>
+					<div class="form-group {{ $errors->first('password') ? 'has-error' : '' }}">
+							{{ Form::password('password', array('placeholder'=>'Wachtwoord', 'class' => 'form-control')) }}
+							{{ $errors->first('password', '<p class="help-block">:message</p>') }}
+					</div>
+					<div class="form-group">
+						{{Form::checkbox('rememberme', 'Ja', false)}} <span class="extraText">Mijn gebruikersnaam onthouden</span>
+						</br></br>
+						{{ Form::submit('Inloggen', array('class' => 'btn btn-success btn-block')) }}
+						</br>
+						<a href="{{ URL::to('forgot_password') }}"><span class="extraText">> Wachtwoord vergeten</span></a>
+					</div>            
+				{{ Form::close() }}
 				</div>
-			
-				<div class="form-group {{ $errors->first('password') ? 'has-error' : '' }}">
-					{{ Form::label('password', 'Wachtwoord'); }}
-						{{ Form::password('password', array('placeholder'=>'Wachtwoord', 'class' => 'form-control')) }}
-						{{ $errors->first('password', '<p class="help-block">:message</p>') }}
-				</div>
-				<div class="form-group">
-					{{Form::checkbox('rememberme', 'Ja', false)}} <span class="extraText">Mijn gebruikersnaam onthouden</span>
-					</br></br>
-					{{ Form::submit('Inloggen', array('class' => 'btn btn-success btn-block')) }}
-					</br>
-					<a href=""><span class="extraText">> Wachtwoord vergeten</span></a>
-				</div>            
-			{{ Form::close() }}
+			</div>
 		</div>
 	</div>
 </div>

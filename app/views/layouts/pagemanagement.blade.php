@@ -73,37 +73,11 @@
     </body>
 	
 	<script type="text/javascript">
-		function makeBtnActive(){
-			if(document.getElementById('addPageButton').className == "btn btn-primary"){
-				document.getElementById('addPageButton').className = "btn btn-primary active";
-				buildUrlPanel();
-			}else{
-				document.getElementById('addPageButton').className = "btn btn-primary";
-				removeBuildUrlPanel();
-			}
-		}
 		
-		function buildUrlPanel(){
-			var divContainer = document.createElement('div');
-			divContainer.className = "container";
-				
-			var divCreateUrl = document.createElement('div');
-			divCreateUrl.id = "divCreateUrl";
-			divCreateUrl.className = "panel panel-default";
-
-			document.body.appendChild(divContainer);
-				
-			divContainer.appendChild(divCreateUrl);
-		}
-		
-		function removeBuildUrlPanel(){
-			var test = document.getElementById("divCreateUrl");
-			var divContainer = document.getElementById("container").id;
-			divContainer.removeChild(test);
-		}
 	</script>
 	
 	{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js') }}
 	{{ HTML::script('js/jquery.min.js') }}
 	{{ HTML::script('js/bootstrap.js') }}
+	{{ HTML::script('js/pageManagement.js') }}
 </html>
