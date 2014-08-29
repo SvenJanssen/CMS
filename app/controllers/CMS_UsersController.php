@@ -11,6 +11,8 @@ class CMS_UsersController extends \BaseController
 
 	public function getLogin()
 	{
+		if(Sentry::check()) return Redirect::route('users.index');
+		
 		return View::make('CMS_users.login');
 	}
 

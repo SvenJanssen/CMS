@@ -50,11 +50,16 @@
 		</div>
 		@show
 		
+		<?php
+			Breadcrumbs::addCrumb('Home', '/');
+			Breadcrumbs::setDivider('»');
+			Breadcrumbs::addCrumb('Profiel', 'profile');
+		?>
+		
 		@section('breadcrumb')
-		<ol class="breadcrumb">
-			<li style="margin-left: 200px;"><span class="glyphicon glyphicon-home"></span><a href="{{ URL::to('users') }}"> Home</a></li>
-			<li class="active">{{ Request::url() }}</li>
-		</ol>
+		<ul class="breadcrumb" style="margin-left: 200px;">
+			<li class="breadcrumb">{{ Breadcrumbs::Render() }}</li>
+		</ul>
 		@show
 		
         <div class="container">

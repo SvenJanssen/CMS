@@ -52,7 +52,7 @@
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-8">
-						<input type="file" name="file" id="file" onchange="readURL(this);">
+						{{ Form::file('file', array('id' => 'file', 'onchange' => 'readURL(this)'))}}
 					</div>
 					<div class="col-md-4">
 						<img class="img-thumbnail" src="uploads/{{$user->profile_image}}" alt="image-1" width="250" id="previewImage"/>
@@ -61,25 +61,12 @@
 				</div>
 			<div class="modal-footer">
 					<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-					<input type="submit" name="submit" value="Submit" class="btn btn-primary">
+					{{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
 			{{ Form::close() }}
 			</div>
 		</div>
 	</div>
 </div>
 
-<script type="text/javascript">
-	function readURL(input) {
-		if (input.files && input.files[0]) {
-			
-			var reader = new FileReader();
-
-			reader.onload = function (e) {
-				$('#previewImage').attr('src', e.target.result);
-			}
-
-			reader.readAsDataURL(input.files[0]);
-		}
-	}
-</script>
+<script type="text/javascript" src="js/profileIndex.js"></script>
 @stop

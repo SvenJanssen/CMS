@@ -123,6 +123,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Cartalyst\Sentry\SentryServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
+		'Creitive\Breadcrumbs\BreadcrumbsServiceProvider',
 
 	),
 
@@ -190,7 +192,9 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'Sentry' 		  => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'Image' 		  => 'Intervention\Image\Facades\Image',
+		'Breadcrumbs'	  => 'Creitive\Breadcrumbs\Facades\Breadcrumbs',
 
 	),
 
