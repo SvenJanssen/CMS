@@ -10,7 +10,10 @@
 		"laravelbook/ardent": "dev-master",
 		"cartalyst/sentry": "2.1.*",
 		"intervention/image": "2.*",
-		"creitive/breadcrumbs": "dev-master"
+		"davejamesmiller/laravel-breadcrumbs":"~2.2.2",
+		"edvinaskrucas/notification": "3.*",
+		"codesleeve/asset-pipeline": "dev-master",
+		"dimsav/laravel-translatable": "4.3.*"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "dev-master"
@@ -22,7 +25,8 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
+			"app/tests/TestCase.php",
+			"app/composers"
 		]
 	},
 	"scripts": {

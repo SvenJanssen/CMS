@@ -51,6 +51,9 @@ return array(
 	| to any of the locales which will be supported by the application.
 	|
 	*/
+	
+	// Just enter this array somewhere near your default locale
+	'locales' => array('en', 'nl', 'de'),
 
 	'locale' => 'en',
 
@@ -124,8 +127,9 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
-		'Creitive\Breadcrumbs\BreadcrumbsServiceProvider',
-
+		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+		'Krucas\Notification\NotificationServiceProvider',
+		'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
 	),
 
 	/*
@@ -194,8 +198,8 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Sentry' 		  => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Image' 		  => 'Intervention\Image\Facades\Image',
-		'Breadcrumbs'	  => 'Creitive\Breadcrumbs\Facades\Breadcrumbs',
-
+		'Breadcrumbs' 	  => 'DaveJamesMiller\Breadcrumbs\Facade',
+		'Notification' 	  => 'Krucas\Notification\Facades\Notification',
 	),
 
 );

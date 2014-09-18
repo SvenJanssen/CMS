@@ -1,0 +1,80 @@
+html, body {
+	background: #333;
+	margin: 0;
+	height:100%;
+	padding: 0;
+}
+
+* {
+	margin: 0;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+#welcomeText{
+	float: right;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+
+#websiteDropDown{
+	float: right;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+
+#selectedWebsite{
+	float: right;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+
+#menu {
+	transition: all 0.3s ease;
+	position: fixed;
+	width: 0%;
+	top: 0;
+	left: -200px;
+	background: #eee;
+	height: 100%;
+	z-index: 999;
+	box-shadow: 0px 0px 10px black;
+}
+#menu a {
+	color: white;
+	display: block;
+	text-decoration: none;
+	padding: 10px 10px 10px 10px;
+	margin: 10px 10px 10px 10px;
+	transition: all 0.2s ease;
+}
+#menu a:hover {
+	background: #1e88ff;
+}
+#menu-toggle {
+	position: fixed;
+	top: 50%;
+	left: 0;
+	background: #3270a9;
+	z-index: 1000;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	transition: all 0.3s ease;
+}
+#menu-toggle:hover {
+	cursor: pointer;
+}
+#menu.open {
+	left: 0;
+	width: 300px;
+	display: block;
+}
+#menu-toggle.open {
+	left: 300px;
+}

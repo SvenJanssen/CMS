@@ -1,18 +1,18 @@
 @extends('layouts.base')
 
-{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js') }}
-{{ HTML::script('js/lightbox.min.js') }}
-{{ HTML::style('css/screen.css') }}
-{{ HTML::style('css/lightbox.css') }}
+@section('breadcrumb')
+	{{ Breadcrumbs::render('profiel') }}
+@stop
 
 @section('main')
+
 <div class="panel panel-default">
 	<div class="panel-heading">Profiel pagina</div>
 	<div class="row">
 		<div class="col-md-4">
 			<div class="panel-body">
-				<a class="example-image-link" href="uploads/{{ $user->profile_image}}" data-lightbox="example-1">
-					<img class="img-thumbnail" src="uploads/{{ $user->profile_image}}" alt="image-1" width="250"/>
+				<a class="example-image-link" href="/assets/{{ $user->profile_image}}" data-lightbox="example-1">
+					<img class="img-thumbnail" src="/assets/{{ $user->profile_image}}" alt="image-1" width="250"/>
 					<span class="glyphicon glyphicon-fullscreen" style="color:white;position:absolute;margin-top:25px;margin-left:-25px;"></span>
 				</a>
 				
@@ -55,7 +55,7 @@
 						{{ Form::file('file', array('id' => 'file', 'onchange' => 'readURL(this)'))}}
 					</div>
 					<div class="col-md-4">
-						<img class="img-thumbnail" src="uploads/{{$user->profile_image}}" alt="image-1" width="250" id="previewImage"/>
+						<img class="img-thumbnail" src="/assets/{{$user->profile_image}}" alt="image-1" width="250" id="previewImage"/>
 						</br></br>
 					</div>
 				</div>

@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 	'local' => array('homestead'),
-	'doloremque' => array('doloremque'),
+	//'doloremque' => array('doloremque'),
 
 ));
 
@@ -72,3 +72,4 @@ require $framework.'/Illuminate/Foundation/start.php';
 */
 
 return $app;
+

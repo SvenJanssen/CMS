@@ -1,0 +1,18 @@
+{
+	"connections": {
+		// 
+		"doloremque": {
+			"host" : "localhost",
+			"database" : "doloremqeu",
+			"username" : "root",
+			"password" : ""
+		},
+		// 
+		"wiwi": {
+			"host" : "localhost",
+			"database" : "wiwi",
+			"username" : "root",
+			"password" : ""
+		}
+	}
+}

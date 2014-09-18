@@ -26,7 +26,7 @@ class CMS_ProfileController extends \BaseController
 		$file = Input::file('file');
 		$filename = $file->getClientOriginalName();
 		
-		if(Image::make($file->getRealPath())->resize('300', '200')->save('public/uploads/'. $filename)){
+		if(Image::make($file->getRealPath())->resize('150', '200')->save('app/assets/images/'. $filename)){
 			
 			DB::table('users')->where('id', $user->id)->update(array('profile_image' => $filename));
 			

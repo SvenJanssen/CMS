@@ -3,9 +3,9 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface 
+class User extends \Cartalyst\Sentry\Users\Eloquent\User implements UserInterface, RemindableInterface 
 {
-    protected $guarded = array('_token');        
+    protected $guarded = array('_token');
     
     public function rules($action = 'insert')
     {
@@ -120,5 +120,4 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	public function customer(){
 		return $this->belongsTo('Customer');
 	}
-
 }

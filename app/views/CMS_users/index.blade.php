@@ -1,10 +1,14 @@
 @extends('layouts.base')
 
-{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js') }}
-
 @section('main')
-<!-- -->
 <div class="container">
+
+	<div class="alert alert-info alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		Welkom op de dashboard.
+	</div>
+
+
 	<div class="row">
 		<?php 
 			$index = 0; 
@@ -22,7 +26,11 @@
 						</div>
 						<div class="modal-body">
 							@foreach($user->customer->websites as $website)
-								<a href="http://www.nu.nl">{{ $website->name }}</a>
+								{{ Form::open(array('route' => 'select.db.post', 'role' => 'form')) }}
+									{{ Form::hidden('dbname', $website->name) }}
+									{{ Form::submit($website->name, array('class' => 'btn btn-success btn-block')) }}
+								{{ Form::close() }}
+								
 								</br>
 							@endforeach
 						</div>
@@ -36,12 +44,36 @@
 			}else{
 				return;
 			}
-		?>	
+		?>
+		<?php
+			$person = Session::get('persons');
+			if($person == null){
+				echo "";
+			}else{
+		?>
+		<table class="table table-striped">
+			<tr>
+				<td>
+					<?php
+							foreach($person as $per){
+								echo $per->firstname;
+							}
+						}	
+					?>
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#myModal").modal('show');
-	});
-</script>
+@stop
+
+@section('js')
+	<script type="text/javascript">
+		// Make dashboard button active
+		$("#dashboardId").addClass("active");
+
+		$(document).ready(function(){
+			//$("#myModal").modal('show');
+		});
+	</script>
 @stop

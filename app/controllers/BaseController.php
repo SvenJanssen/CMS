@@ -14,5 +14,14 @@ class BaseController extends Controller {
 			$this->layout = View::make($this->layout);
 		}
 	}
+	
+	// 
+	public function selectDB($database){;
+		
+		Session::set('database', $database);
 
+		$persons = DB::table('person')->get();
+
+		return Redirect::back()->with(['persons' => $persons]);
+	}
 }

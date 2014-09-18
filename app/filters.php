@@ -10,6 +10,17 @@
 | application. Here you may also register your custom route filters.
 |
 */
+// check of database al in sessie staat? config::get('session') == true
+Route::filter('database', function(){
+	Config::set('database.connections.mysql.host', 'localhost');
+	Config::set('database.connections.mysql.database', Session::get('database'));
+	Config::set('database.connections.mysql.username', 'root');
+	Config::set('database.connections.mysql.password', '');
+	
+	// file_get_contents(app_path() . '/database/connections/' . Session::get('database') . '.json');
+	
+	// uit json halen!
+});
 
 App::before(function($request)
 {

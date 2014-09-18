@@ -33,10 +33,13 @@ function buildUrlPanel(){
 	var divPanelBody = document.createElement('div');
 	divPanelBody.id = "divPanelBody";
 	divPanelBody.className = "panel-body";
+
+	var exampleRoute = document.createElement('text');
+	exampleRoute.id = "exampleRoute";
+	exampleRoute.innerHTML = "Example Route: /dus/blaat/";
 	
 	var inputRoute = document.createElement('input');
 	inputRoute.id = "inputRoute";
-	
 	
 	// Append div's to body
 	document.body.appendChild(divContainer);
@@ -46,6 +49,8 @@ function buildUrlPanel(){
 	divPanelDefault.appendChild(divPanelHeading);
 	// third div
 	divPanelDefault.appendChild(divPanelBody);
+	//
+	divPanelDefault.appendChild(exampleRoute);
 	// append InputRoute
 	divPanelBody.appendChild(inputRoute);
 	
