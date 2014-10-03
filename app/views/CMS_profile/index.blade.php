@@ -6,6 +6,8 @@
 
 @section('main')
 
+@include('partials.notification')
+
 <div class="panel panel-default">
 	<div class="panel-heading">Profiel pagina</div>
 	<div class="row">

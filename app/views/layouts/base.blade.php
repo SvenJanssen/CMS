@@ -1,8 +1,6 @@
 <html>
 	{{ stylesheet_link_tag() }}
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	
     <body>
         @section('header')
 			<nav class="navbar navbar-default" role="navigation">
@@ -21,7 +19,7 @@
 			    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      			<ul class="nav navbar-nav tooltip-examples list-inline">
 			       	 		<li id="dashboardId"><a href="{{ URL::route('users.index') }}" data-toggle="tooltip" title="Dashboard"><span class="glyphicon glyphicon-dashboard" style="font-size: 1.5em"></span></a></li>
-			        		<li id="pageManagementId"><a href="{{ URL::route('pageManagement.select') }}" data-toggle="tooltip" title="Paginabeheer"><span class="glyphicon glyphicon-file" style="font-size: 1.5em"></span></a></li>
+			        		<li id="pageManagementId"><a href="{{ URL::route('pages.index') }}" data-toggle="tooltip" title="Paginabeheer"><span class="glyphicon glyphicon-file" style="font-size: 1.5em"></span></a></li>
 			        		<li><a href="#" data-toggle="tooltip" title="Agenda"><span class="glyphicon glyphicon-calendar" style="font-size: 1.5em"></span></a></li>
 			        		<li><a href="#" data-toggle="tooltip" title="E-mail inbox"><span class="glyphicon glyphicon-inbox" style="font-size: 1.5em"></span><span class="badge pull-right" style="background: #30a0ff">42</span></a></li>
 			        		<li><a href="#" data-toggle="tooltip" title="Notificaties"><span class="glyphicon glyphicon-bell" style="font-size: 1.5em"></span><span class="badge pull-right" style="background: #30a0ff">19</span></a></li>
@@ -36,7 +34,7 @@
 										<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu">
-										<li><a href="{{ URL::to('profile') }}"><span class="glyphicon glyphicon-user"></span> Profiel</a></li>
+										<li><a href="{{ URL::route('profile.index') }}"><span class="glyphicon glyphicon-user"></span> Profiel</a></li>
 										<li class="divider"></li>
 										<li><a href="{{ URL::to('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Uitloggen</a></li>
 									</ul>
@@ -55,7 +53,7 @@
 												// Get database name without top domain('.nl/.com')
 												list($database, $notneeded) = explode(".", $website->name); 
 											?>
-											<li ><a href='{{ URL::route('website.select', $database) }}'>{{ $website->name }}</a></li>
+											<li><a href='{{ URL::route('website.select', $database) }}'>{{ $website->name }}</a></li>
 											 
 										@endforeach
 										<?php
@@ -66,7 +64,7 @@
 										?>
 											<li class="divider"></li>
 										<?php
-												echo '<li class="active text-center"><a href="#">' . $dbName . '</a></li>';
+												echo '<li class="active text-center tooltip-examples"><a href="#" data-toggle="tooltip" title="Dit is de door u geselecteerde website. Bij aanpassingen wordt deze selecteerde website aangepast.">' . $dbName . '</a></li>';
 											}
 										?>
 									</ul>
@@ -86,15 +84,8 @@
             @yield('main')
         </div>
 
-        <script type="text/javascript">
-			$(document).ready(function(){
-			    $(".tooltip-examples a").tooltip({
-			        placement : 'bottom'
-			    });
-			});
-		</script>
-
-		{{ javascript_include_tag() }}
+        {{ javascript_include_tag() }}
+		
 		@yield('js')
     </body>
 </html>

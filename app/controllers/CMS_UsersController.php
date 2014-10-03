@@ -1,16 +1,26 @@
 <?php
 
+/**
+*	@author: Sven Janssen(Intern Wiwi)
+*	@version: 1.0
+*
+*	This controller show the following pages with there logic:
+*		-	Login,
+*		-	Logout,
+*		-	ChangePassword.
+*/
+
 class CMS_UsersController extends \BaseController
 {
+
 	public function login($user){
-		//return $user;
-		
 	 	Sentry::login($user, false);
 
 	   	Event::fire('user.login', array('userId' => $user->id));
 	}
 
 	public function getLogin(){
+		
 		if(Sentry::check()) return Redirect::route('users.index');
 		
 		return View::make('CMS_users.login');
@@ -20,8 +30,6 @@ class CMS_UsersController extends \BaseController
 		$user = new User;
 
 		$v = Validator::make(Input::all(), $user->rules('login'));
-		
-		
 		
 		if($v->fails()) {
 			return Redirect::route('users.login')
@@ -36,7 +44,7 @@ class CMS_UsersController extends \BaseController
 				
 				if($rememberMe = (Input::get('remember') == 'checked' ? true : false) == true){
 					Sentry::login($user, false);
-					
+
 					return Redirect::route('users.login');
 				}else{
 					Sentry::login($user, false);
@@ -79,6 +87,12 @@ class CMS_UsersController extends \BaseController
 	}
 
 	public function getLogout(){
+
+		if(isset($_COOKIE['database'])){
+			unset($_COOKIE['database']);
+			setcookie('database', null, -1, '/');
+		}
+
 		Sentry::logout();
 
 		Event::fire('user.logout');
@@ -87,6 +101,7 @@ class CMS_UsersController extends \BaseController
 	}
 
 	public function index(){
+		
 		$user = User::with('customer.websites')->where(['id' => Sentry::getUser()->id])->first();
 
         return View::make('CMS_users.index')->with(['user'=> $user]);
@@ -127,11 +142,11 @@ class CMS_UsersController extends \BaseController
             }              
 	}
 
-	public function show($id){
-        return Response::json(User::find($id)->toArray());
+	public function show(){
+        //return Response::json(User::find($id)->toArray());
 	}
 
-	public function edit($id){
+	public function edit(){
 		//
 	}
 
@@ -200,7 +215,7 @@ class CMS_UsersController extends \BaseController
 			
 			return  View::make('CMS_users.new_password');
 
-		// Now you can send this code to your user via email for example.
+		// Now you can send this code to your user via email
 		}catch (Cartalyst\Sentry\Users\UserNotFoundException $e){
 			return Redirect::back()->withErrors($e->getMessage());
 		}

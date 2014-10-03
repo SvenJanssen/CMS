@@ -18,5 +18,7 @@
 //= require lightbox.min
 //= require jquery-ajax-form
 //= require profileIndex
+//= require main
+//= require jquery.cookie
 //= require backbonejs
 //= require_tree .

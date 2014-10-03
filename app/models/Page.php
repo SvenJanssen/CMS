@@ -2,9 +2,8 @@
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
-use Cartalyst\Sentry\Users\Eloquent\User as SentryUserModel;
 
-class User extends SentryUserModel implements UserInterface, RemindableInterface 
+class Page extends \Cartalyst\Sentry\Users\Eloquent\User implements UserInterface, RemindableInterface 
 {
     protected $guarded = array('_token');
     

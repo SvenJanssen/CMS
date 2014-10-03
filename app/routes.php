@@ -20,29 +20,33 @@
 	
 	# Post routes
 	Route::post('/', array('as' => 'users.login.post', 'uses' => 'CMS_UsersController@postLogin'));
-	Route::post('/profile/upload', array('as' => 'profile.changeImage.post', 'uses' => 'CMS_ProfileController@postChangeImage'));
 	Route::post('/password_forgotten/', array('as' => 'users.password_forgotten.post', 'uses' => 'CMS_UsersController@postChangePassword'));
 	Route::post('/db_select', array('as' => 'select.db.post', 'uses' => 'BaseController@postConnectDB'));
 	Route::post('/email/send', array('as' => 'sendEmail.post', 'uses' => 'EmailController@postSend'));
 	Route::post('/resetpassword', array('as' => 'users.reset_password.post', 'uses' => 'CMS_UsersController@postResetPassword'));
+	Route::post('/profile/upload', array('as' => 'profile.changeImage.post', 'uses' => 'CMS_ProfileController@postChangeImage'));
 
 	# Post routes page management
-	Route::post('/addRoute/', array('as' => 'addRoute.post', 'uses' => 'CMS_PageManagementController@addRoute'));
+	Route::group(array('before' => 'database|Sentry'), function(){
+		Route::post('/addRoute', array('as' => 'addRoute.post', 'uses' => 'CMS_PagesController@postAddRoute'));
+		Route::post('/editRoute', array('as' => 'editRoute.post', 'uses' => 'CMS_PagesController@postEditRoute'));
+		Route::post('/deleteRoute', array('as' => 'deleteRoute.post', 'uses' => 'CMS_PagesController@postDeleteRoute'));
+	});
 
 	# Standard User pages
-	Route::group(array('before' => 'auth|Sentry'), function(){
+	Route::group(array('before' => 'database|Sentry'), function(){
+		Route::resource('profile', 'CMS_ProfileController');
+		Route::resource('pages', 'CMS_PagesController');
 		Route::resource('users', 'CMS_UsersController'); 
-		Route::get('profile', 'CMS_ProfileController@showIndex');
-		Route::get('page_management', array('as' => 'pageManagement.select', 'uses' => 'CMS_PageManagementController@showPageManagement'));
-		Route::get('page_management/add_page/', array('as' => 'add_page', 'uses' => 'CMS_PageManagementController@showTest'));
+		Route::get('website/{database}', array('as' => 'website.select', 'uses' => 'BaseController@selectDB'));
 	});
-	
+
 	# Multi database connections
-	Route::group(array('before' => 'database'), function(){
+	/*Route::group(array('before' => 'database'), function(){
 		//Route::get('/country', array('as' => 'country.index', 'uses' => 'CountryController@index'));
 		//Route::get('country/create', array('as' => 'country.insert', 'uses' => 'CountryController@insert'));
 		Route::get('website/{database}', array('as' => 'website.select', 'uses' => 'BaseController@selectDB'));
-	});
+	});*/
 	
 	# Admin pages
 	
